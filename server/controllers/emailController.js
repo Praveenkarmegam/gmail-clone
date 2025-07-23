@@ -1,4 +1,3 @@
-// controllers/emailController.js
 import path from "path";
 import Email from "../models/Email.js";
 import sendMail from "../utils/nodemailer.js";

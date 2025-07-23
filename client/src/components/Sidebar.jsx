@@ -1,4 +1,3 @@
-// Sidebar.jsx
 import React, { useState, useEffect } from 'react';
 import {
   Drawer, List, ListItemButton, ListItemIcon, ListItemText,

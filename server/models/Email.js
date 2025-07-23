@@ -1,4 +1,3 @@
-// models/Email.js
 import mongoose from 'mongoose';
 
 const EmailSchema = new mongoose.Schema({
