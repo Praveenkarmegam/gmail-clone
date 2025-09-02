@@ -1,6 +1,10 @@
 import axios from 'axios';
 
+//local
+
 // export const API_BASE = 'http://localhost:5000/api/emails';
+
+// render
 
 export const API_BASE = 'https://gmail-clone-1-qw9m.onrender.com/api/emails';
 
