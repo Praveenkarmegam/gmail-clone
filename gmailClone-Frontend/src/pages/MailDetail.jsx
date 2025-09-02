@@ -130,7 +130,9 @@ const MailDetail = () => {
           </Typography>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
             {attachments.map((file, index) => {
-              const fileUrl = `http://localhost:5000/${file}`;
+              // const fileUrl = `http://localhost:5000/${file}`;
+              const fileUrl = `https://gmail-clone-1-qw9m.onrender.com/${file}`;
+
               const filename = file.split("/").pop();
               const isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(file);
 
