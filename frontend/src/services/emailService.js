@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000/api/emails';
+// ✅ Export API_BASE so other files can import it
+export const API_BASE = 'http://localhost:5000/api/emails';
 
 // Create axios instance
 const axiosInstance = axios.create({
@@ -50,25 +51,19 @@ export const getTrashEmails = async () => {
 // 📧 Mail By ID
 export const getEmailById = async (id) => {
   const res = await axiosInstance.get(`/item/${id}`);
-  return res.data.data; // expecting an object or null
+  return res.data.data;
 };
-
-
 
 // ✉️ Compose
 export const sendEmail = (formData) =>
   axiosInstance.post('/send', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
+    headers: { 'Content-Type': 'multipart/form-data' },
   });
 
 // 📝 Draft
 export const saveDraft = (formData) =>
   axiosInstance.post('/draft', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
+    headers: { 'Content-Type': 'multipart/form-data' },
   });
 
 // ⭐ Star Toggle

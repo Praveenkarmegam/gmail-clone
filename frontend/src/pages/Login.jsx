@@ -1,29 +1,28 @@
-import React, { useState } from 'react'
-import { Box, TextField, Button, Typography, Stack, Link } from '@mui/material'
-import axios from 'axios'
-import { useAuth } from '../context/AuthContext'
-import { useNavigate, Link as RouterLink } from 'react-router-dom'
-import { API_BASE } from '../services/emailService'  // ✅ import existing API_BASE
-
+import React, { useState } from 'react';
+import { Box, TextField, Button, Typography, Stack, Link } from '@mui/material';
+import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
+import { API_BASE } from '../services/emailService'; // ✅ Now works because it's exported
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const { login } = useAuth()
-  const navigate = useNavigate()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(`${API_BASE}/auth/login`, {
+      const res = await axios.post(`${API_BASE.replace('/emails', '')}/auth/login`, {
         email,
         password,
-      })
-      login(res.data.token, email) // ✅ Persist token + email
-      navigate('/inbox')
+      });
+      login(res.data.token, email);
+      navigate('/inbox');
     } catch (err) {
-      alert('Invalid credentials')
+      alert('Invalid credentials');
     }
-  }
+  };
 
   return (
     <Box maxWidth={400} mx="auto" mt={10}>
@@ -53,7 +52,7 @@ const Login = () => {
         </Typography>
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
