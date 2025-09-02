@@ -6,7 +6,7 @@ import axios from 'axios';
 
 // render
 
-export const API_BASE = 'https://gmail-clone-1-qw9m.onrender.com/api/emails';
+export const API_BASE = 'https://gmail-clone-1-qw9m.onrender.com/api';
 
 
 // Create axios instance
